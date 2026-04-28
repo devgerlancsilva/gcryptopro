@@ -1,10 +1,10 @@
-# 🪙 g-crypto Pro v2
+# 🪙 g-crypto Pro v2...
 
 **g-crypto Pro v2** é a evolução definitiva em rastreamento de criptomoedas. Desenvolvido em Python, ele combina análise técnica avançada, interface moderna no terminal e um **Interpretador Web de alta performance** para monitoramento em tempo real.
 
 ---
 
-## ✨ Funcionalidades Pro
+## ✨ Funcionalidades Pro...
 
 - **⚡ Cache Inteligente**: Sistema de cache otimizado para a API do CoinGecko, evitando bloqueios por excesso de requisições e garantindo performance instantânea.
 - **📊 Análise Técnica**: Cálculo automático de Médias Móveis (SMA-7 e SMA-20) para identificação precisa de tendências de mercado.
