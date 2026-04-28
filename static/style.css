@@ -1,0 +1,149 @@
+:root {
+  --bg-1: #0b1220;
+  --bg-2: #172033;
+  --card: rgba(24, 36, 59, 0.82);
+  --line: rgba(99, 119, 158, 0.45);
+  --text: #e7efff;
+  --muted: #a4b8e4;
+  --accent: #23d18b;
+  --danger: #ff5d73;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(35, 209, 139, 0.12), transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(72, 138, 255, 0.15), transparent 35%),
+    linear-gradient(145deg, var(--bg-1), var(--bg-2));
+}
+
+.page {
+  width: min(1100px, 94vw);
+  margin: 2rem auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
+  letter-spacing: 0.02em;
+}
+
+.hero p {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  backdrop-filter: blur(8px);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr)) auto;
+  gap: 0.8rem;
+  padding: 1rem;
+  align-items: end;
+}
+
+.controls label {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.controls input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(10, 18, 32, 0.8);
+  color: var(--text);
+  padding: 0.65rem 0.75rem;
+}
+
+.controls button {
+  border: 0;
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  background: linear-gradient(90deg, #23d18b, #35f0b5);
+  color: #042011;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.status {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(140px, 1fr));
+  gap: 0.8rem;
+}
+
+.metric {
+  padding: 0.85rem;
+}
+
+.metric h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.metric p {
+  margin: 0.45rem 0 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.chart-wrap {
+  padding: 1rem;
+}
+
+#priceChart {
+  width: 100%;
+  height: 240px !important;
+}
+
+.chart-wrap h2 {
+  margin: 0 0 0.9rem;
+}
+
+#updatedAt {
+  color: var(--muted);
+  display: inline-block;
+  margin-top: 0.75rem;
+}
+
+.positive {
+  color: var(--accent);
+}
+
+.negative {
+  color: var(--danger);
+}
+
+@media (max-width: 900px) {
+  .controls {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
+}

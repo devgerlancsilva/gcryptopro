@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>g-crypto Web | Tempo Real</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>g-crypto Web</h1>
+      <p>Painel em tempo real para monitorar e interpretar o mercado cripto com graficos dinamicos.</p>
+    </section>
+
+    <section class="controls card">
+      <label for="coinSelect">Moeda</label>
+      <select id="coinSelect">
+        {% for nome, coin_id in populares.items() %}
+        <option value="{{ coin_id }}" {% if coin_id == 'bitcoin' %}selected{% endif %}>{{ nome }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="daysInput">Historico (dias)</label>
+      <input id="daysInput" type="number" min="1" max="365" value="30">
+
+      <label for="refreshInput">Atualizacao (segundos)</label>
+      <input id="refreshInput" type="number" min="3" max="120" value="8">
+
+      <button id="applyBtn">Atualizar Painel</button>
+      <div id="statusText" class="status">Pronto para carregar dados.</div>
+    </section>
+
+    <section class="metrics" id="metrics">
+      <article class="metric card">
+        <h3>Preco USD</h3>
+        <p id="priceUsd">-</p>
+      </article>
+      <article class="metric card">
+        <h3>Preco BRL</h3>
+        <p id="priceBrl">-</p>
+      </article>
+      <article class="metric card">
+        <h3>Variacao 24h</h3>
+        <p id="change24h">-</p>
+      </article>
+      <article class="metric card">
+        <h3>Market Cap</h3>
+        <p id="marketCap">-</p>
+      </article>
+      <article class="metric card">
+        <h3>Volume 24h</h3>
+        <p id="volume24h">-</p>
+      </article>
+    </section>
+
+    <section class="chart-wrap card">
+      <h2 id="chartTitle">Historico de Precos</h2>
+      <canvas id="priceChart"></canvas>
+      <small id="updatedAt">-</small>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
